@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Post Review";
+}
+<h1>Write a new Review</h1>
+<form action="reviews" method="post">
+    <p>Reviewer Name: <input type="text" name="name"></p>
+    <p>Restaurant Name: <input type="text" name="restaurant"></p>
+    <p>Stars: 
+        <select name="stars">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </p>
+    <p>Review:</p>
+    <p><textarea name="review" cols="30" rows="10"></textarea></p>
+    <p>Date of visit: <input type="date" name="visited"></p>
+    <p><button type="submit">Submit</button></p>
+</form>
+<div>
+    @{
+        foreach(var error in ViewBag.errors)
+        {
+            //If there are any errors for a field...
+            if(@error.Errors.Count > 0)
+            {
+                // We show the first error for that field
+                <p>@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    }
+</div>

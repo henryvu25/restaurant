@@ -1,0 +1,9 @@
+<a href="/"><button>Back</button></a>
+@foreach(var review in @ViewBag.everything){
+    <p>Review for: @review.restaurant</p>
+    <p>@review.stars star(s)</p>
+    <p>Reviewer: @review.name, @review.visited.ToString("MMMM dd, yyyy")</p>
+    <p>@review.review</p>
+    <hr>
+}
+<a href="/"><button>Back</button></a>
